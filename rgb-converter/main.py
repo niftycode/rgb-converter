@@ -10,6 +10,8 @@ Date created: September 18th, 2022
 Date modified: -
 """
 
+import tkinter as tk
+
 
 def hex_to_rgb(hex_value):
     rgb = []
