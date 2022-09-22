@@ -51,12 +51,13 @@ class MainWindow:
         self.window.columnconfigure(1, weight=1)
         self.window.columnconfigure(2, weight=1)
         self.window.columnconfigure(3, weight=1)
+        self.window.columnconfigure(4, weight=1)
 
         # Load logo image
         logo_img = ImageTk.PhotoImage(file="assets/rgb-converter-logo.png")
         logo_widget = ttk.Label(self.window, image=logo_img)
         logo_widget.image = logo_img
-        logo_widget.grid(columnspan=4, column=0, row=0)
+        logo_widget.grid(columnspan=5, column=0, row=0)
 
         # Load labels
         hex_label = ttk.Label(self.window,
@@ -68,6 +69,16 @@ class MainWindow:
                               text="Enter RGB values:",
                               font=("Helvetica", 16))
         rgb_label.grid(column=0, row=2, pady=4, sticky="w")
+
+        output_label = ttk.Label(self.window,
+                                 text="Result:",
+                                 font=("Helvetica", 16))
+        output_label.grid(column=0, row=3, pady=15, sticky="w")
+
+        result_label = ttk.Label(self.window,
+                                 text="",
+                                 font=("Helvetica", 16))
+        result_label.grid(column=1, columnspan=2, row=3, pady=15, sticky="w")
 
         # Load entries
         hex_text = tk.StringVar()
@@ -86,13 +97,16 @@ class MainWindow:
         b_textbox = ttk.Entry(self.window, textvariable=b_text, width=4)
         b_textbox.grid(column=3, row=2, sticky="w")
 
-        # text_content = text.get('1.0','end')
-        # Create an Exit button.
-        # b2 = Button(win, text="Exit", command=win.destroy)
+        exit_button = tk.Button(self.window,
+                                text="Exit",
+                                width=6,
+                                command=self.window.destroy)
+        exit_button.grid(column=0, row=4, sticky="w")
 
         def show_rgb_values():
             user_input = hex_text.get()
-            print(converter.hex_to_rgb(user_input))
+            result = converter.hex_to_rgb(user_input)
+            result_label.config(text=result)
 
         # Load buttons
         hex_button = tk.Button(self.window,
