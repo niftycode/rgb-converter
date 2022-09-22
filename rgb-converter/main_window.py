@@ -12,6 +12,8 @@ Date modified: -
 
 import tkinter as tk
 
+from tkinter import ttk  # import newer widgets
+
 from PIL import ImageTk
 
 BG_COLOR = "#D3F7EC"
@@ -21,42 +23,68 @@ class MainWindow:
     def __init__(self):
         self.window = tk.Tk()
         self.window.title("RGB Converter")
-        self.window.eval("tk::PlaceWindow . center")
+        # self.window.iconbitmap('./assets/pythontutorial.ico')
 
-        # Create a frame
-        frame = tk.Frame(self.window, width=600, height=400, bg=BG_COLOR)
-        frame.grid(column=0, row=0, sticky="nesw")
-        # Prevent the child label element to change the parent frame element
-        frame.pack_propagate(False)
+        # Set width and height of the window
+        window_width = 600
+        window_height = 400
+
+        # Get the screen dimension
+        screen_width = self.window.winfo_screenwidth()
+        screen_height = self.window.winfo_screenheight()
+
+        # Find the center point
+        center_x = int(screen_width / 2 - window_width / 2)
+        center_y = int(screen_height / 2 - window_height / 2)
+
+        # Set the position of the window to the center of the screen
+        self.window.geometry(f"{window_width}x{window_height}+{center_x}+{center_y}")
+
+        # Window is not resizable
+        self.window.resizable(False, False)
+
+        # Configure the grid
+        self.window.columnconfigure(0, weight=1)
+        self.window.columnconfigure(1, weight=3)
 
         # Load logo image
-        logo_img = ImageTk.PhotoImage(file="rgb-converter-logo.png")
-        logo_widget = tk.Label(frame, image=logo_img, bg=BG_COLOR)
+        logo_img = ImageTk.PhotoImage(file="assets/rgb-converter-logo.png")
+        logo_widget = ttk.Label(self.window, image=logo_img)
         logo_widget.image = logo_img
-        logo_widget.pack()  # defaults to widget = "top"
+        logo_widget.grid(columnspan=2, column=0, row=0)
 
-        hex_value_label = tk.Label(frame,
-                                   text="Enter a hex value: ",
-                                    bg=BG_COLOR,
-                                    fg="black",
-                                    font=("TkMenuFont", 14)
-                                    )
-        hex_value_label.grid(column=0, row=1)
-        hex_value_label.pack()
+        hex_label = ttk.Label(self.window,
+                              text="Enter a hex value",
+                              font=("Helvetica", 20))
+        hex_label.grid(column=0, row=1, pady=20)
 
-
-
-        def color_change():
-            hex_button.configure(bg="red", fg="yellow")
-
-        hex_button = tk.Button(frame, text='click me!', command=color_change())
+        rgb_label = ttk.Label(self.window,
+                              text="Enter rgb values",
+                              font=("Helvetica", 20))
+        rgb_label.grid(column=0, row=2, pady=20)
 
         hex_text = tk.StringVar()
+        hex_textbox = ttk.Entry(self.window, textvariable=hex_text)
+        hex_textbox.grid(column=1, row=1)
 
-        # hex_button = tk.Button(frame, textvariable=hex_text, bg=BG_COLOR, font="TkMenuFont")
+        # text_content = text.get('1.0','end')
+        # Create an Exit button.
+        # b2 = Button(win, text="Exit", command=win.destroy)
+
+        '''
+
+        hex_button = tk.Button(frame,
+                               text='click me!',
+                               bg="green",
+                               height=3,
+                               width=5
+                               )
+
+        hex_text = tk.StringVar()
         hex_text.set("Click me!")
         hex_button.grid(column=1, row=2)
         hex_button.pack()
+    '''
 
     def mainloop(self):
         self.window.mainloop()
