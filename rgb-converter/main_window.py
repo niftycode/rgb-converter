@@ -103,9 +103,17 @@ class MainWindow:
                                 command=self.window.destroy)
         exit_button.grid(column=0, row=4, sticky="w")
 
-        def show_rgb_values():
+        def _show_rgb_values():
             user_input = hex_text.get()
             result = converter.hex_to_rgb(user_input)
+            result_label.config(text=result)
+
+        def _show_hex_value():
+            r_input = int(r_text.get())
+            g_input = int(g_text.get())
+            b_input = int(b_text.get())
+
+            result = converter.rgb_to_hex(r_input, g_input, b_input)
             result_label.config(text=result)
 
         # Load buttons
@@ -113,25 +121,18 @@ class MainWindow:
                                text="Show RGB values",
                                height=1,
                                width=10,
-                               command=show_rgb_values
+                               command=_show_rgb_values
                                )
         hex_button.grid(column=4, row=1)
 
         rgb_button = tk.Button(self.window,
                                text="Show hex value",
                                height=1,
-                               width=10
+                               width=10,
+                               command=_show_hex_value
                                )
         rgb_button.grid(column=4, row=2)
 
-
-
-        '''
-        hex_text = tk.StringVar()
-        hex_text.set("Click me!")
-        hex_button.grid(column=1, row=2)
-        hex_button.pack()
-    '''
 
     def mainloop(self):
         self.window.mainloop()
