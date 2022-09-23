@@ -5,7 +5,7 @@
 """
 Convert hex value to rgb an vice versa
 Version: 1.0
-Python 3.10+
+Python 3.9+
 Date created: September 22th, 2022
 Date modified: -
 """
@@ -13,7 +13,6 @@ Date modified: -
 import tkinter as tk
 
 from tkinter import ttk  # import newer widgets
-from tkinter import messagebox
 from PIL import ImageTk
 
 import converter
@@ -132,7 +131,6 @@ class MainWindow:
                                command=_show_hex_value
                                )
         rgb_button.grid(column=4, row=2)
-
 
     def mainloop(self):
         self.window.mainloop()

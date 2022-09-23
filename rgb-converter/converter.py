@@ -9,7 +9,7 @@ This file contains the converter methods:
 - rgb_to_hex
 
 Version: 1.0
-Python 3.10+
+Python 3.9+
 Date created: September 22th, 2022
 Date modified: -
 """
