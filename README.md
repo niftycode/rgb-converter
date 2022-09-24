@@ -15,4 +15,4 @@ This program was developed on macOS, but it should also work on a Linux system o
 
 ## Changelog
 
-see Changelog.rst
+see [Changelog.rst](https://github.com/niftycode/rgb-converter/blob/main/CHANGELOG.rst)
