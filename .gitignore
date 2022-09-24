@@ -8,9 +8,11 @@
 /dist
 /docs
 
+.main.spec
 .DS_Store
 .pytest_cache
 .vscode
 .pyc
 
 __pycache__
+/main.spec

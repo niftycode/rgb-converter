@@ -10,12 +10,8 @@ Date created: September 18th, 2022
 Date modified: September 23rd, 2022
 """
 
-import logging
 
-import main_window
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger()
+from rgb_converter import main_window
 
 
 BG_COLOR = "#D3F7EC"
