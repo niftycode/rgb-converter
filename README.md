@@ -8,7 +8,11 @@ For me, it is a test field to deal more with the Tk interface. For other develop
 
 ## Requirements
 
-Python 3.9+
-Pillow
+* Python 3.9+
+* Pillow
 
 This program was developed on macOS, but it should also work on a Linux system or Windows 10/11.
+
+## Changelog
+
+see Changelog.rst
