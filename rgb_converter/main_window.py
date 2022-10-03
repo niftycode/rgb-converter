@@ -11,9 +11,8 @@ Date modified: September 24th, 2022
 """
 
 import tkinter as tk
-
 from tkinter import ttk  # import newer widgets
-# from PIL import ImageTk
+from PIL import ImageTk
 
 from rgb_converter import converter
 
@@ -29,7 +28,7 @@ class MainWindow:
 
         # Set width and height of the window
         window_width = 500
-        window_height = 400
+        window_height = 380
 
         # Get the screen dimension
         screen_width = self.window.winfo_screenwidth()
@@ -59,16 +58,16 @@ class MainWindow:
             result_label.config(text=result)
 
         # Load logo image
-        # logo_img = ImageTk.PhotoImage(file="rgb_converter/assets/rgb-converter-logo.png")
-        # logo_widget = ttk.Label(self.window, image=logo_img)
-        # logo_widget.image = logo_img
-        # logo_widget.grid()
+        logo_img = ImageTk.PhotoImage(file="rgb_converter/assets/rgb-converter-logo.png")
+        logo_widget = ttk.Label(self.window, image=logo_img)
+        logo_widget.image = logo_img
+        logo_widget.grid()
 
-        ttk.Label(
-            self.window,
-            text="RGB Converter",
-            font=("TkDefaultFont", 20)
-        ).grid()
+        # ttk.Label(
+        #     self.window,
+        #     text="RGB Converter",
+        #     font=("TkDefaultFont", 20)
+        # ).grid()
 
         # Create Widgets in a Frame (mf = main frame)
         # to keep geometry management simpler
