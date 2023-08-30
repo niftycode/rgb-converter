@@ -12,7 +12,7 @@ Date modified: September 24th, 2022
 
 import tkinter as tk
 from tkinter import ttk  # import newer widgets
-from PIL import ImageTk
+# from PIL import ImageTk
 
 from rgb_converter import converter
 

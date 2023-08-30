@@ -3,11 +3,11 @@
 
 
 """
-Convert hex value to rgb an vice versa
+Convert hex value to rgb and vice versa
 Version: 1.0
-Python 3.9+
+Python 3.11+
 Date created: September 18th, 2022
-Date modified: September 23rd, 2022
+Date modified: August 30th, 2023
 """
 
 
